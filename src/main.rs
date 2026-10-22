@@ -22,15 +22,14 @@ fn main() {
         let Ok(files) = file_readers else{
             panic!("expected file name or directory name to be given");
         };
+
+
         println!("files received {:?}",files);
         
 
-        if let Ok(mut compiler_final) = CompilationEngine::new(files){
-        println!("{:?}",compiler_final);
+        let mut compiler_final = CompilationEngine::new(files).unwrap();
         compiler_final.begin();
-        }else{
-            panic!("Error occured trying to create compiler from args")
-        }
+        
 
        
 }
